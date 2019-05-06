@@ -1,6 +1,6 @@
 [![](https://images.microbadger.com/badges/image/keinos/mastodon-tooter.svg)](https://microbadger.com/images/keinos/mastodon-tooter "View image details on microbadger.com") [![](https://img.shields.io/docker/cloud/automated/keinos/mastodon-tooter.svg)](https://hub.docker.com/r/keinos/mastodon-tooter "DockerHub Repo") [![](https://img.shields.io/docker/cloud/build/keinos/mastodon-tooter.svg)](https://hub.docker.com/r/keinos/mastodon-tooter/builds "See builds on Docker Hub")
 
-# Dockerfile to Toot on Mastodon
+# Dockerfile To Toot On Mastodon
 
 Simple Docker container to toot via sh shell.
 
@@ -16,7 +16,13 @@ This is a sample usage of [keinos/busybox-curl-nkf](https://hub.docker.com/r/kei
 
 # Sample Usage
 
-Edit the user settings in the [sample.sh](./sample.sh) file then run.
+1. [Download the sample script](https://KEINOS.github.io/Dockerfile_of_Mastodon-Tooter/sample.sh)
+2. Get the access token from your Mastodon instance.
+
+    - See: "[How do I get the access token](https://github.com/KEINOS/Mastodon_Simple-Toot-Deleter#how-do-i-get-the-access-token)" @ GitHub
+
+3. Edit the user settings in the [sample.sh](https://github.com/KEINOS/Dockerfile_of_Mastodon-Tooter/blob/master/sample.sh#L5-L6) file.
+4. Run the script.
 
 ```shellsession
 $ # View sample script
