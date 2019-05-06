@@ -4,11 +4,15 @@
 
 Simple Docker container to toot via sh shell.
 
+```text
+docker pull keinos/mastodon-tooter
+```
+
 This is a sample usage of [keinos/busybox-curl-nkf](https://hub.docker.com/r/keinos/busybox-curl-nkf) base image.
 
 - Repositories:
   - Image: https://hub.docker.com/r/keinos/mastodon-tooter @ DockerHub
-  - Source: https://github.com/KEINOS/Dockerfile_of_Tooting-Mastodon @ GitHub
+  - Source: https://github.com/KEINOS/Dockerfile_of_Mastodon-Tooter @ GitHub
 
 # Sample Usage
 
