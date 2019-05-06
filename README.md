@@ -1,6 +1,6 @@
 [![](https://images.microbadger.com/badges/image/keinos/mastodon-tooter.svg)](https://microbadger.com/images/keinos/mastodon-tooter "View image details on microbadger.com") [![](https://img.shields.io/docker/cloud/automated/keinos/mastodon-tooter.svg)](https://hub.docker.com/r/keinos/mastodon-tooter "DockerHub Repo") [![](https://img.shields.io/docker/cloud/build/keinos/mastodon-tooter.svg)](https://hub.docker.com/r/keinos/mastodon-tooter/builds "See builds on Docker Hub")
 
-# Dockerfile_of_Tooting-Mastodon
+# Dockerfile to Toot on Mastodon
 
 Simple Docker container to toot via sh shell.
 
