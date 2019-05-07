@@ -2,62 +2,33 @@
 
 # Dockerfile To Toot On Mastodon
 
-Simple Docker container to toot via sh shell.
+**Simple Docker container to toot**. This is a sample usage of [keinos/busybox-curl-nkf](https://hub.docker.com/r/keinos/busybox-curl-nkf) base image.
 
 ```text
 docker pull keinos/mastodon-tooter
 ```
 
-This is a sample usage of [keinos/busybox-curl-nkf](https://hub.docker.com/r/keinos/busybox-curl-nkf) base image.
-
-- Repositories:
+- REPOs:
   - Image: https://hub.docker.com/r/keinos/mastodon-tooter @ DockerHub
   - Source: https://github.com/KEINOS/Dockerfile_of_Mastodon-Tooter @ GitHub
 
-# Sample Usage
+- Usage:
 
-1. [Download the sample script](https://KEINOS.github.io/Dockerfile_of_Mastodon-Tooter/sample.sh)
-2. Get the access token from your Mastodon instance.
+  ```bash
+  docker run --rm \
+    --env HOST="https://qiitadon.com" \
+    --env VISIBILITY="private" \
+    --env ACCESS_TOKEN="<Your Access Token Here>" \
+    --env STATUS="こんにちは　Mastodon" \
+    keinos/mastodon-tooter && echo
+  ```
 
-    - See: "[How do I get the access token](https://github.com/KEINOS/Mastodon_Simple-Toot-Deleter#how-do-i-get-the-access-token)" @ GitHub
-
-3. Edit the user settings in the [sample.sh](https://github.com/KEINOS/Dockerfile_of_Mastodon-Tooter/blob/master/sample.sh#L5-L6) file.
-4. Run the script.
-
-```shellsession
-$ # View sample script
-$ cat ./sample.sh
-#!/usr/bin/env bash
-
-#  User settings
-# ---------------
-HOST_MASTODON='https://qiitadon.com' # Do not add slash at the end.
-TOKEN_MASTODON='xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
-
-# Endpoint of Mastodon toot API
-ENDPOINT_TOOT='/api/v1/statuses'
-
-# Docker image on DockerHub
-NAME_IMAGE='keinos/mastodon-tooter'
-
-# Set default
-TOOT_STATUS=${1:-'Hello World! from API'}
-TOOT_VISIBILITY=${VISIBILITY:-private} # public, unlisted, private, direct
-
-# Create disposable container and run
-docker run --rm \
-  -e HOST="${HOST_MASTODON}" \
-  -e ENDPOINT="${ENDPOINT_TOOT}" \
-  -e STATUS="${TOOT_STATUS}" \
-  -e VISIBILITY="${TOOT_VISIBILITY}" \
-  -e ACCESS_TOKEN="${TOKEN_MASTODON}" \
-  $NAME_IMAGE \
-&& echo
-
-$
-$ # Run script
-$ ./sample.sh 'こんにちは　令和'
-...
-```
-
-If success then the JSON responce will retrun.
+  - Env variables you MUST set:
+    - `HOST`: The host of your Mastodon instance. Don't include a slash at the end.
+    - `VISIBILITY`: Visibility of the toot(status). `public`, `unlisted`, `private` and `direct` are available.
+    - `ACCESS_TOKEN`: Your access token generated from your instance.
+      - REF: See: "[How do I get the access token](https://github.com/KEINOS/Mastodon_Simple-Toot-Deleter#how-do-i-get-the-access-token)" @ GitHub
+    - `STATUS`: Your toot content.
+  - OPTIONAL env variables:
+    - `METHOD`: Method to use when API request. Default is `POST`.
+    - `ENDPOINT`: Endpoint of the API in your instance. Default is `/api/v1/statuses`.
