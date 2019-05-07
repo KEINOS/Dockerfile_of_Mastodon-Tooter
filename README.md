@@ -18,9 +18,9 @@ docker pull keinos/mastodon-tooter
   docker run --rm \
     --env HOST="https://qiitadon.com" \
     --env VISIBILITY="private" \
-    --env ACCESS_TOKEN="<Your Access Token Here>" \
+    --env ACCESS_TOKEN="[Your Access Token Here]" \
     --env STATUS="こんにちは　Mastodon" \
-    keinos/mastodon-tooter && echo
+    keinos/mastodon-tooter
   ```
 
   - Env variables you MUST set:
