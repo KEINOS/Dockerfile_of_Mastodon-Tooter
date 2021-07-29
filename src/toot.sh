@@ -18,7 +18,7 @@ ENDPOINT=${ENDPOINT:-'/api/v1/statuses'}
 set -u;
 
 # URL Encode the STATUS
-STATUS_ESCAPED=$(echo "${STATUS}" | nkf -WwMQ | sed 's/=$//g' | tr = % | tr -d '\n'S)
+STATUS_ESCAPED=$(echo "${STATUS}" | nkf -WwMQ | sed 's/=$//g' | tr = % | tr -d '\n')
 
 # URL of Mastodon API to request
 URL_API_REQUEST=${HOST}${ENDPOINT}
